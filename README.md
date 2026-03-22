@@ -66,28 +66,6 @@ protected abstract bool CanMoveTo(int newRow, int newColumn);
 
 ---
 
-## Структура проекта
-
-ChessApp
-│
-├── Models
-│   ├── ChessPiece.cs
-│   ├── Queen.cs
-│   ├── Rook.cs
-│   └── Bishop.cs
-│
-├── ViewModels
-│   ├── MainViewModel.cs
-│   └── ObservableObject.cs
-│
-├── Views
-│   ├── MainWindow.xaml
-│   └── MainWindow.xaml.cs
-│
-├── App.xaml
-├── App.xaml.cs
-└── ChessApp.csproj
-
 ## Запуск проекта
 
 ### В Rider / Visual Studio
