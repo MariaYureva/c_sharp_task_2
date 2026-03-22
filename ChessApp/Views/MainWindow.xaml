@@ -1,0 +1,111 @@
+﻿<Window x:Class="ChessApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="ChessApp"
+        Height="500"
+        Width="750"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Padding="12" CornerRadius="6">
+            <StackPanel>
+                <TextBlock Text="Демонстрация иерархии шахматных фигур"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Margin="0,0,0,10"/>
+
+                <WrapPanel Margin="0,4,0,4">
+                    <TextBlock Text="Выберите фигуру: "
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+                    <ComboBox Width="220"
+                              Margin="10,0,0,0"
+                              ItemsSource="{Binding Pieces}"
+                              SelectedItem="{Binding SelectedPiece}"
+                              DisplayMemberPath="DisplayInfo"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="0,4,0,4">
+                    <TextBlock Text="Тип фигуры: " FontWeight="Bold"/>
+                    <TextBlock Text="{Binding SelectedPieceType}"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="0,4,0,4">
+                    <TextBlock Text="Цвет: " FontWeight="Bold"/>
+                    <TextBlock Text="{Binding SelectedPieceColor}"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="0,4,0,4">
+                    <TextBlock Text="Текущая позиция: " FontWeight="Bold"/>
+                    <TextBlock Text="{Binding CurrentPosition}"/>
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                Padding="12"
+                Margin="0,15,0,0"
+                CornerRadius="6">
+            <StackPanel>
+                <TextBlock Text="Координаты хода"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Margin="0,0,0,10"/>
+
+                <WrapPanel Margin="0,4,0,4">
+                    <TextBlock Text="Строка (1-8): "
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+                    <TextBox Width="100"
+                             Margin="10,0,0,0"
+                             Text="{Binding TargetRow, UpdateSourceTrigger=PropertyChanged}"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="0,4,0,4">
+                    <TextBlock Text="Столбец (1-8): "
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+                    <TextBox Width="100"
+                             Margin="10,0,0,0"
+                             Text="{Binding TargetColumn, UpdateSourceTrigger=PropertyChanged}"/>
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="2" Margin="0,15,0,0" Orientation="Horizontal">
+            <Button Content="Сделать ход"
+                    Width="140"
+                    Height="35"
+                    Click="MoveButton_Click"/>
+        </StackPanel>
+
+        <Border Grid.Row="3"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                Padding="12"
+                Margin="0,15,0,0"
+                CornerRadius="6">
+            <StackPanel>
+                <TextBlock Text="Результат"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Margin="0,0,0,10"/>
+                <TextBlock Text="{Binding Message}"
+                           TextWrapping="Wrap"
+                           FontSize="14"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
