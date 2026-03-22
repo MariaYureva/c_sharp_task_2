@@ -54,6 +54,7 @@
 
 ```csharp
 protected abstract bool CanMoveTo(int newRow, int newColumn);
+```
 
 ## Технологии
 
